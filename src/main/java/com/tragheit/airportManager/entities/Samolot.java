@@ -7,15 +7,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "samolot")
 @SuppressWarnings("serial")
-public class Samolot implements Serializable{
-	
+public class Samolot implements Serializable {
+
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	@Column(nullable = false)
 	private String marka;
-	
+
 	@Column(nullable = false)
 	private String model;
 
