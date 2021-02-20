@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,15 +20,21 @@ public class MiejsceSamolot implements Serializable {
 	private long id;
 
 	@Column(nullable = false)
+	@ManyToOne
+	@JoinColumn(name="samolot_id", referencedColumnName="id")
 	private Samolot samolot;
 
 	@Column(nullable = false)
 	private String nazwa;
 
 	@Column(nullable = false)
+	@ManyToOne
+	@JoinColumn(name="miejsce_samolot_klasa_id", referencedColumnName="id")
 	private int klasa;
 
 	@Column(nullable = false)
+	@ManyToOne
+	@JoinColumn(name="miejsce_samolot_rodzaj_id", referencedColumnName="id")
 	private int rodzaj;
 
 	public long getId() {

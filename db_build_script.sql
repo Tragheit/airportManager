@@ -137,6 +137,12 @@ alter table LOT
 add constraint FK_LOT_LOTNISKO_PRZYLOT
 foreign key (lotnisko_przylot) references LOTNISKO(id);
 
+-- alter table LOT
+-- drop foreign key FK_LOT_SAMOLOT;
+alter table LOT
+add constraint FK_LOT_SAMOLOT
+foreign key (samolot) references SAMOLOT(id);
+
 -- alter table MIEJSCE_SAMOLOT
 -- drop foreign key FK_MIEJSCE_SAMOLOT_SAMOLOT;
 alter table MIEJSCE_SAMOLOT

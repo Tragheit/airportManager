@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,14 +21,20 @@ public class Lot implements Serializable {
 	private long id;
 
 	@Column(nullable = false)
+	@ManyToOne
+	@JoinColumn(name = "lotnisko_id", referencedColumnName="id")
 	private Lotnisko lotnisko_wylot;
 
 	@Column(nullable = false)
+	@ManyToOne
+	@JoinColumn(name = "lotnisko_id", referencedColumnName="id")
 	private Lotnisko lotnisko_przylot;
 
 	@Column(nullable = false)
 	private Date data_wylot;
 
+	@ManyToOne
+	@JoinColumn(name="samolot_id", referencedColumnName="id")
 	@Column(nullable = false)
 	private Samolot samolot;
 

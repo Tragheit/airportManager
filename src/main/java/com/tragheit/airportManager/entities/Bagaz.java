@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +20,8 @@ public class Bagaz implements Serializable {
 	private long id;
 
 	@Column(nullable = false)
+	@ManyToOne
+	@JoinColumn(name="bagaz_rodzaj_id", referencedColumnName="id")
 	private BagazRodzaj rodzaj;
 
 	@Column(nullable = false)
