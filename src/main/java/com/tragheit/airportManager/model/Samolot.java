@@ -1,16 +1,18 @@
-package com.tragheit.airportManager.entities;
+package com.tragheit.airportManager.model;
 
-import java.io.Serializable;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "samolot")
-@SuppressWarnings("serial")
-public class Samolot implements Serializable {
+public class Samolot{
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Column(nullable = false)
@@ -18,6 +20,7 @@ public class Samolot implements Serializable {
 
 	@Column(nullable = false)
 	private String model;
+	
 
 	public long getId() {
 		return id;

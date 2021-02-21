@@ -1,20 +1,18 @@
-package com.tragheit.airportManager.entities;
-
-import java.io.Serializable;
+package com.tragheit.airportManager.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "miejsce_samolot_rodzaj")
-@SuppressWarnings("serial")
-public class MiejsceSamolotRodzaj implements Serializable {
+@Table(name = "miejsce_samolot_klasa")
+public class MiejsceSamolotKlasa {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Column(nullable = false)
@@ -49,6 +47,6 @@ public class MiejsceSamolotRodzaj implements Serializable {
 
 	@Override
 	public String toString() {
-		return "MiejsceSamolotRodzaj [id=" + id + ", nazwa=" + nazwa + ", mnoznik_cena=" + mnoznik_cena + "]";
+		return "MiejsceSamolotKlasa [id=" + id + ", nazwa=" + nazwa + ", mnoznik_cena=" + mnoznik_cena + "]";
 	}
 }

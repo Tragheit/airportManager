@@ -1,10 +1,9 @@
-package com.tragheit.airportManager.entities;
-
-import java.io.Serializable;
+package com.tragheit.airportManager.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,16 +11,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "bagaz")
-@SuppressWarnings("serial")
-public class Bagaz implements Serializable {
+public class Bagaz {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(nullable = false)
 	@ManyToOne
-	@JoinColumn(name="bagaz_rodzaj_id", referencedColumnName="id")
+	@JoinColumn(name="bagaz_rodzaj")
 	private BagazRodzaj rodzaj;
 
 	@Column(nullable = false)

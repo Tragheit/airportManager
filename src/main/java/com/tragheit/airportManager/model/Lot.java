@@ -1,11 +1,11 @@
-package com.tragheit.airportManager.entities;
+package com.tragheit.airportManager.model;
 
-import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,29 +13,25 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "lot")
-@SuppressWarnings("serial")
-public class Lot implements Serializable {
+public class Lot{
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(nullable = false)
 	@ManyToOne
-	@JoinColumn(name = "lotnisko_id", referencedColumnName="id")
+	@JoinColumn(name = "lotnisko_wylot")
 	private Lotnisko lotnisko_wylot;
 
-	@Column(nullable = false)
 	@ManyToOne
-	@JoinColumn(name = "lotnisko_id", referencedColumnName="id")
+	@JoinColumn(name = "lotnisko_przylot")
 	private Lotnisko lotnisko_przylot;
 
 	@Column(nullable = false)
 	private Date data_wylot;
 
 	@ManyToOne
-	@JoinColumn(name="samolot_id", referencedColumnName="id")
-	@Column(nullable = false)
+	@JoinColumn(name="samolot")
 	private Samolot samolot;
 
 	@Column(nullable = false)

@@ -1,10 +1,9 @@
-package com.tragheit.airportManager.entities;
-
-import java.io.Serializable;
+package com.tragheit.airportManager.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,30 +11,26 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "miejsce_samolot")
-@SuppressWarnings("serial")
-public class MiejsceSamolot implements Serializable {
+public class MiejsceSamolot {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(nullable = false)
 	@ManyToOne
-	@JoinColumn(name="samolot_id", referencedColumnName="id")
+	@JoinColumn(name="samolot")
 	private Samolot samolot;
 
 	@Column(nullable = false)
 	private String nazwa;
 
-	@Column(nullable = false)
 	@ManyToOne
-	@JoinColumn(name="miejsce_samolot_klasa_id", referencedColumnName="id")
-	private int klasa;
+	@JoinColumn(name="miejsce_samolot_klasa")
+	private MiejsceSamolotKlasa klasa;
 
-	@Column(nullable = false)
 	@ManyToOne
-	@JoinColumn(name="miejsce_samolot_rodzaj_id", referencedColumnName="id")
-	private int rodzaj;
+	@JoinColumn(name="miejsce_samolot_rodzaj")
+	private MiejsceSamolotRodzaj rodzaj;
 
 	public long getId() {
 		return id;
@@ -61,19 +56,19 @@ public class MiejsceSamolot implements Serializable {
 		this.nazwa = nazwa;
 	}
 
-	public int getKlasa() {
+	public MiejsceSamolotKlasa getKlasa() {
 		return klasa;
 	}
 
-	public void setKlasa(int klasa) {
+	public void setKlasa(MiejsceSamolotKlasa klasa) {
 		this.klasa = klasa;
 	}
 
-	public int getRodzaj() {
+	public MiejsceSamolotRodzaj getRodzaj() {
 		return rodzaj;
 	}
 
-	public void setRodzaj(int rodzaj) {
+	public void setRodzaj(MiejsceSamolotRodzaj rodzaj) {
 		this.rodzaj = rodzaj;
 	}
 

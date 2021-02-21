@@ -1,48 +1,40 @@
-package com.tragheit.airportManager.entities;
+package com.tragheit.airportManager.model;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "bilet")
-@SuppressWarnings("serial")
-public class Bilet implements Serializable {
+public class Bilet {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(nullable = false)
 	@ManyToOne
-	@JoinColumn(name="pasazer_id", referencedColumnName="id")
+	@JoinColumn(name="pasazer")
 	private Pasazer pasazer;
 
-	@Column(nullable = false)
-	@OneToMany
-	@JoinColumn(name="bagaz_id", referencedColumnName="id")
+	@OneToOne
+	@JoinColumn(name="bagaz")
 	private Bagaz bagaz;
 
-	@Column(nullable = false)
 	@ManyToOne
-	@JoinColumn(name="lot_id", referencedColumnName="id")
+	@JoinColumn(name="lot")
 	private Lot lot;
 
-	@Column(nullable = false)
 	@ManyToOne
-	@JoinColumn(name="miejsce_samolot_id", referencedColumnName="id")
+	@JoinColumn(name="miejsce_samolot")
 	private MiejsceSamolot miejsce;
 
-	@Column(nullable = false)
 	@ManyToOne
-	@JoinColumn(name="bilet_status_id", referencedColumnName="id")
+	@JoinColumn(name="bilet_status")
 	private BiletStatus status;
 
 	public long getId() {
