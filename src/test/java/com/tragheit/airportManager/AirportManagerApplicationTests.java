@@ -8,6 +8,7 @@ class AirportManagerApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println();
 	}
 
 }
