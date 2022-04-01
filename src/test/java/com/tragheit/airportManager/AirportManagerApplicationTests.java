@@ -8,7 +8,7 @@ class AirportManagerApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println();
+		System.out.println("Hello");
 	}
 
 }
